@@ -118,10 +118,10 @@ const MainTable = styled.div`
 
   th,
   td {
-    /* border: 1px solid #ddd; */
     padding: 10px;
     text-align: left;
     border-bottom: 1px solid #ddd;
     font-family: Montserrat;
     font-weight: 500;
+      
   }`

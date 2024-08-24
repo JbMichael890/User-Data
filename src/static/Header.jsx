@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { TbDownload } from "react-icons/tb";
 import { NavLink } from "react-router-dom";
+import { FiMenu } from "react-icons/fi";
 
 const Header = () => {
   return (
@@ -21,18 +22,27 @@ const Header = () => {
             80 users
           </button>
         </Users>
-        <See>
-          {/* <p>See your active workplace and make changes</p> */}
-        </See>
-<Navigation>
-  
-<MainNav to="/post"><nav>Post</nav></MainNav>
-<MainNav to="/comment"><nav>Comments</nav></MainNav>
-<MainNav to="/albums"><nav>Albums</nav></MainNav>
-<MainNav to="/photos"><nav>Photos</nav></MainNav>
-<MainNav to="/todo"><nav>Todo</nav></MainNav>
-<MainNav to="/users"><nav>Users</nav></MainNav>
-</Navigation>
+        <See>{/* <p>See your active workplace and make changes</p> */}</See>
+        <Navigation>
+          <MainNav to="/post">
+            <nav>Post</nav>
+          </MainNav>
+          <MainNav to="/comment">
+            <nav>Comments</nav>
+          </MainNav>
+          <MainNav to="/albums">
+            <nav>Albums</nav>
+          </MainNav>
+          <MainNav to="/photos">
+            <nav>Photos</nav>
+          </MainNav>
+          <MainNav to="/todo">
+            <nav>Todo</nav>
+          </MainNav>
+          <MainNav to="/users">
+            <nav>Users</nav>
+          </MainNav>
+        </Navigation>
 
         <Holder>
           <button
@@ -44,6 +54,7 @@ const Header = () => {
               borderRadius: "5px",
               fontWeight: "600",
               cursor: "pointer",
+              
             }}
           >
             <TbDownload /> Download CSV
@@ -59,12 +70,13 @@ const Header = () => {
               cursor: "pointer",
               outline: "none",
               color: "white",
-              fontFamily: "Montserrat"
+              fontFamily: "Montserrat",
             }}
           >
             + Add users
           </button>
         </Holder>
+      <main>  <FiMenu/></main>
       </Wrapper>
     </Container>
   );
@@ -83,6 +95,13 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  main{
+    display: none;
+    @media (max-width: 500px) {
+      display: flex;
+      cursor: pointer;
+    }
+  }
 `;
 
 const Users = styled.div`
@@ -90,29 +109,28 @@ const Users = styled.div`
   justify-content: center;
   align-items: center;
 `;
-const Holder = styled.div``;
-const See = styled.div`
-   /* display: flex;
-justify-content: center;
-align-items: center;
-flex-direction: row; */
-
+const Holder = styled.div`
+@media (max-width: 500px) {
+  display: none;
+}
 `;
+const See = styled.div``;
 const Navigation = styled.div`
-display: flex;
-nav{
-  margin: 0px 15px;
+  display: flex;
+  nav {
+    margin: 0px 15px;
     font-weight: 500;
     cursor: pointer;
-}
-`
+  }
+  @media (max-width: 1010px) {
+    display: none;
+  }
+`;
 const MainNav = styled(NavLink)`
-text-decoration: none;
-color: #3f88c5;
+  text-decoration: none;
+  color: #3f88c5;
 
-
-&.active{
-  color: rgb(37 99 235);
-}
-
-`
+  &.active {
+    color: rgb(37 99 235);
+  }
+`;
