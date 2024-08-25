@@ -1,10 +1,21 @@
 import styled from "styled-components";
+ import SideBarl from "./SideBarl";
 import { TbDownload } from "react-icons/tb";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { FiMenu } from "react-icons/fi";
 
 const Header = () => {
+   
+  const [toggle, setToggle] = useState(false);
+  
+
+  const getToggle = () => {
+    setToggle(!toggle);
+  };
+   
   return (
+     <div>
     <Container>
       <Wrapper>
         <Users>
@@ -76,9 +87,13 @@ const Header = () => {
             + Add users
           </button>
         </Holder>
-      <main>  <FiMenu/></main>
+         
+      <main onClick={getToggle}>  <FiMenu/></main>
       </Wrapper>
     </Container>
+     
+    {toggle ? <SideBarl /> : null}
+    </div>
   );
 };
 
@@ -97,7 +112,7 @@ const Wrapper = styled.div`
   align-items: center;
   main{
     display: none;
-    @media (max-width: 500px) {
+    @media (max-width: 1010px) {
       display: flex;
       cursor: pointer;
     }
