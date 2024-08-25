@@ -123,5 +123,9 @@ const MainTable = styled.div`
     border-bottom: 1px solid #ddd;
     font-family: Montserrat;
     font-weight: 500;
-      
+     
+     @media (max-width:400px) {
+      padding: 5px;
+       
+     }
   }`
